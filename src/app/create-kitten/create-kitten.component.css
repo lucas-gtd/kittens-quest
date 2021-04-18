@@ -1,0 +1,12 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+form button {
+  background: none;
+  background-color: hsl(100%, 100%, 10%);
+  border: none;
+  color: white;
+  margin-top: 2rem;
+}

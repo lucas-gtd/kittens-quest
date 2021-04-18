@@ -1,0 +1,20 @@
+<h1>Ajouter un chaton à la liste:</h1>
+<form (ngSubmit)="form.valid && onSubmit()" #form="ngForm">
+    <label for="kittenNameInput">Kitten Name</label>
+    <input type="text" id="kittenNameInput" name="kittenNameInput" [(ngModel)]="newKitten.name" required #name="ngModel" >
+    <label for="kittenRaceInput">Kitten race</label>
+    <input type="text" id="kittenRaceInput" name="kittenRaceInput" [(ngModel)]="newKitten.race" required #race="ngModel" >
+    <label for="kittenBirthInput">Kitten Birth</label>
+    <input type="text" id="kittenBirthInput" name="kittenBirthInput" [(ngModel)]="newKitten.birth" required #birth="ngModel" >
+    <label for="kittenImgInput">Kitten Image (url)</label>
+    <input type="text" id="kittenImgInput" name="kittenImgInput" [(ngModel)]="newKitten.img" required #image="ngModel" >
+    <ul style="color: #690700;">
+        <li *ngIf="name.errors?.required" >name is required</li>
+        <li *ngIf="race.errors?.required" >race is required</li>
+        <li *ngIf="birth.errors?.required" >birth is required</li>
+        <li *ngIf="image.errors?.required" >image is required</li>
+    </ul>
+    <button type="submit" [disabled]="!form.valid" [ngStyle]="{background: !form.valid ? '#690700' : '#006e30'}">
+        Add
+    </button>
+</form>

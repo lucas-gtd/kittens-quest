@@ -1,0 +1,29 @@
+<main>
+    <section>
+        <h1>Liste de tous les chatons:</h1>
+        <div *ngFor="let kitten of kittens" >
+            <div class="card" style="width: 18rem;">
+                <img (mouseenter)="hover = true" [src]="kitten.img" class="card-img-top" [alt]="kitten.name">
+                <div (mouseleave)="hover = false" *ngIf="hover" class="card-body">
+                  <h5 class="card-title"> {{kitten.name}} </h5>
+                  <p class="card-text"> {{kitten.race}} </p>
+                  <button (click)="addUserKitten(kitten)" class="btn btn-primary">Adopter</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <h1>Liste de vos chatons:</h1>
+        <div *ngFor="let kitten of userKittens" >
+            <div (mouseenter)="hover = true" class="card" style="width: 18rem;">
+                <img [src]="kitten.img" class="card-img-top" [alt]="kitten.name">
+                <div (mouseleave)="hover = false" *ngIf="hover" class="card-body">
+                  <h5 class="card-title"> {{kitten.name}} </h5>
+                  <p class="card-text"> {{kitten.race}} </p>
+                  <button (click)="removeUserKitten(kitten)" class="btn btn-danger">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
